@@ -3,12 +3,13 @@ import { TSMigrationGenerator } from "@mikro-orm/migrations";
 import { __prod__ } from "./constants";
 import { Post } from "./entities/Post";
 import path from 'path';
+import { User } from "./entities/User";
 
 const config: Options = {
   dbName: 'lireddit',
   debug: !__prod__,
   type: 'postgresql',
-  entities: [Post],
+  entities: [Post, User],
   migrations: {
     tableName: 'mikro_orm_migrations', // name of database table with log of executed transactions
     path: path.join(__dirname, './migrations'), // path to the folder with migrations
